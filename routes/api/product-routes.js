@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     where:{
       id:req.params.id
     },
-    include: [Catgory, {model: Tag, through:ProductTag}],
+    include: [Category, {model: Tag, through:ProductTag}],
   })
     .then((categories) => res.json(categories))
     .catch((err) => res.status(400).json(err));
@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    categry_id: req.body.category_id,
+    category_id: req.body.category_id,
     tagIDs: req.body
 
   })
